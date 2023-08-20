@@ -1,27 +1,27 @@
-import { Tbody, Column } from "./TransactionHistory.styled"
+            
+import { Table, TitleTrHist, Tbody, Column, Cell, CellType, Row } from "./TransactionHistory.styled"
 
 export const TransactionHistory = ({items}) => {
     const keys = Object.keys(items[0]).slice(1)
      return (
-        <table>
-            <thead>
+        <Table>
+            <TitleTrHist>
             <tr>
                 {keys.map(key =>
                     <Column key={keys.indexOf(key)}>{key}</Column>
-                )
-                }
+                )}
             </tr>
-            </thead>
+            </TitleTrHist>
             <Tbody>
                 {items.map(item => (
-                    <tr key={item.id}>
-                        <td>{item.type}</td>
-                        <td>{item.amount}</td>
-                        <td>{item.currency}</td>
-                    </tr>
+                    <Row key={item.id} boole={(items.indexOf(item)%2).toString()}>
+                        <CellType>{item.type}</CellType>
+                        <Cell>{item.amount}</Cell>
+                        <Cell>{item.currency}</Cell>
+                    </Row>
                 ))}
 
             </Tbody>
-        </table> 
+        </Table> 
 ) 
 }
