@@ -1,4 +1,4 @@
-
+import PropTypes from 'prop-types';
 import { Wrapper, Description, Avatar, Name, Tag, Location, List, ListItem, StatsOptn } from './Profile.styled'
 
 export const Profile = ({ item }) => { 
@@ -23,4 +23,15 @@ export const Profile = ({ item }) => {
     </Wrapper>
 
     )
+}
+
+Profile.propTypes = {
+    item: PropTypes.object,
+    stats: PropTypes.object,
+    avatar: PropTypes.string,
+    username: PropTypes.string,
+    tag: PropTypes.string,
+    location: PropTypes.string,
+    keys: PropTypes.array,
+    key: PropTypes.string,
 }
