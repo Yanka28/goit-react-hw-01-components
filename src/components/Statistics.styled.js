@@ -1,20 +1,12 @@
 import styled from 'styled-components';
 
-// let color = () => {
-//     setInterval(() => {
-//         generateColor()
-//     }, 2000);
-// };
-
-    
-
 const  generateColor=()=>{
   return '#' + Math.floor(Math.random() * 16777215).toString(16)
 }
 
 export const StatsSection = styled.section`
 width: 400px;
-height: 120px;
+max-height: 130px;
 margin: 0 auto;
 background-color: #e7e7e7;
 border-radius: 4px; 
@@ -25,7 +17,6 @@ width: 400px;
 height: 60px;
 display: flex;
 border-radius: 4px;
-/* gap: 20px; */
 `
 export const Title = styled.h2`
 display: flex;
