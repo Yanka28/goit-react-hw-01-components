@@ -1,28 +1,29 @@
 import PropTypes from 'prop-types';
 import { StatsSection, List, Title, ListItem } from './Statistics.styled';
 
-export const Statistics = ({ items, itemtit }) => {
-    return (
-        <StatsSection>
-            {(itemtit.title!== '')? <Title>{itemtit.title}</Title>: null}
-            {/* <Title boole={ itemtit.title }>{itemtit.title}</Title> */}
-            <List>
-                {items.map(item => (
-                    <ListItem key={item.id}>
-                        <span>{item.label}</span>
-                        <span>{ item.percentage}%</span>
-                    </ListItem>))}
-            </List>
-        </StatsSection>
-    )
-}
+export const Statistics = ({ items, title }) => {
+  return (
+    <StatsSection>
+      {title && <Title>{title}</Title>}
+      <List>
+        {items.map(item => (
+          <ListItem key={item.id}>
+            <span>{item.label}</span>
+            <span>{item.percentage}%</span>
+          </ListItem>
+        ))}
+      </List>
+    </StatsSection>
+  );
+};
 
 Statistics.propTypes = {
-    items: PropTypes.array,
-    itemtit: PropTypes.object,
-    item: PropTypes.object,
-    username: PropTypes.string,
-    id: PropTypes.string,
-    label: PropTypes.string,
-    percentage: PropTypes.number,
-}
+  title: PropTypes.string,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      percentage: PropTypes.number.isRequired,
+    })
+  ),
+};
